@@ -5,6 +5,7 @@ import useResizeObserver from "../hooks/useResizeObserver";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { mainBody, repos, about, skills } from "../editable-stuff/config.js";
+import {scroller} from 'react-scroll';
 
 const Navigation = React.forwardRef((props, ref) => {
   // const { showBlog, FirstName } = config;
@@ -39,7 +40,12 @@ const Navigation = React.forwardRef((props, ref) => {
       }`}
       expand="lg"
     >
-      <Navbar.Brand className="brand" href={process.env.PUBLIC_URL + "/#home"}>
+      <Navbar.Brand className="brand" href={process.env.PUBLIC_URL + "/#home"}
+      onSelect={() => scroller.scrollTo('home', {
+        smooth: true,
+        offset: -70,
+        duration: 500,
+      })}>
         {`<${mainBody.firstName} />`}
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" className="toggler" />
@@ -54,6 +60,11 @@ const Navigation = React.forwardRef((props, ref) => {
             <Nav.Link
               className="nav-link lead"
               href={process.env.PUBLIC_URL + "/#projects"}
+              onSelect={() => scroller.scrollTo('projects', {
+                smooth: true,
+                offset: -70,
+                duration: 500,
+              })}
             >
               Projects
             </Nav.Link>
@@ -70,6 +81,11 @@ const Navigation = React.forwardRef((props, ref) => {
             <Nav.Link
               className="nav-link lead"
               href={process.env.PUBLIC_URL + "/#aboutme"}
+              onSelect={() => scroller.scrollTo('aboutme', {
+                smooth: true,
+                offset: -70,
+                duration: 500,
+              })}
             >
               About
             </Nav.Link>
@@ -78,6 +94,11 @@ const Navigation = React.forwardRef((props, ref) => {
             <Nav.Link
               className="nav-link lead"
               href={process.env.PUBLIC_URL + "/#skills"}
+              onSelect={() => scroller.scrollTo('skills', {
+                smooth: true,
+                offset: -70,
+                duration: 500,
+              })}
             >
               Skills
             </Nav.Link>

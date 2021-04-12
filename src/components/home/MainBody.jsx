@@ -1,7 +1,12 @@
 import React from "react";
-import Typist from "react-typist";
 import Container from "react-bootstrap/Container";
 import Jumbotron from "react-bootstrap/Jumbotron";
+import Typer from './typed'
+import uimg from '../../assets/img/3.jpeg'
+import Nav from "react-bootstrap/Nav";
+import {scroller} from 'react-scroll';
+
+
 
 const MainBody = React.forwardRef(
   ({ gradient, title, message, icons }, ref) => {
@@ -10,20 +15,16 @@ const MainBody = React.forwardRef(
         fluid
         id="home"
         style={{
-          background: `linear-gradient(136deg,${gradient})`,
-          backgroundSize: "1200% 1200%",
+          backgroundImage: `url(${uimg})`,
         }}
-        className="title bg-transparent bgstyle text-light min-vh-100 d-flex align-content-center align-items-center flex-wrap m-0"
+        className="title text-light min-vh-100 d-flex align-content-center align-items-center flex-wrap m-0"
       >
         <div id="stars"></div>
         <Container className="text-center">
           <h1 ref={ref} className="display-1">
             {title}
           </h1>
-          <Typist className="lead typist" cursor={{ show: false }}>
-            {" "}
-            {message}
-          </Typist>
+          <Typer className = "zztyper"/>
           <div className="p-5">
             {icons.map((icon, index) => (
               <a
@@ -38,12 +39,22 @@ const MainBody = React.forwardRef(
             ))}
           </div>
           <a
-            className="btn btn-outline-light btn-lg "
+            className="btn btn-outline-light btn-lg"
             href="#aboutme"
             role="button"
             aria-label="Learn more about me"
           >
-            More about me
+            <Nav.Link
+              className="nav-link lead"
+              href={process.env.PUBLIC_URL + "/#aboutme"}
+              onSelect={() => scroller.scrollTo('aboutme', {
+                smooth: true,
+                offset: -70,
+                duration: 500,
+              })}
+            >
+              More about me
+            </Nav.Link>
           </a>
         </Container>
       </Jumbotron>
