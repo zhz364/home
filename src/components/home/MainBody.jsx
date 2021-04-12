@@ -18,7 +18,6 @@ const MainBody = React.forwardRef(
           backgroundImage: `url(${uimg})`,
           backgroundPositionX:'center',
           backgroundPositionY:'center', 
-          position:'absolute',
           left:'0',
           top:'0', 
           backgroundSize:'100% 100%'
