@@ -16,6 +16,12 @@ const MainBody = React.forwardRef(
         id="home"
         style={{
           backgroundImage: `url(${uimg})`,
+          backgroundPositionX:'center',
+          backgroundPositionY:'center', 
+          position:'absolute',
+          left:'0',
+          top:'0', 
+          backgroundSize:'100% 100%'
         }}
         className="title text-light min-vh-100 d-flex align-content-center align-items-center flex-wrap m-0"
       >
